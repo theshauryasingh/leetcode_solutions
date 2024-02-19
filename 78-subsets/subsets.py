@@ -2,7 +2,7 @@ class Solution:
     def powerset(self, nums, i, subset):
         # print(nums, i, subset, ans)
         if i >= len(nums):
-            self.ans.append(subset.copy())
+            self.ans.append(subset)
             return
 
         # self.powerset(nums, i+1, subset, ans)
