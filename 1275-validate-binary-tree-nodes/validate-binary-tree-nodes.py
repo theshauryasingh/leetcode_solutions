@@ -56,9 +56,10 @@ class Solution:
                 root = i
         if root == -1:
             return False
-        # if n != self.bfs(root, adjList):
-        if n != self.dfs(root, adjList):
+        if n != self.bfs(root, adjList):
             return False
+        # if n != self.dfs(root, adjList):
+        #     return False
         print(n, root, childParent, adjList)
         
         
