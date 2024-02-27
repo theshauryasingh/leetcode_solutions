@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def createBinaryTree(self, descriptions: List[List[int]]) -> Optional[TreeNode]:
+        # [[20,15,1],[20,17,0],[50,20,1],[50,80,0],[80,19,1]]
         db = {}
         for i in descriptions:
             if i[0] not in db.keys():
