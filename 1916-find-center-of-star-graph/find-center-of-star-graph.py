@@ -11,5 +11,5 @@ class Solution:
             else:
                 adjList[edge[1]].append(edge[0])
         for k,v in adjList.items():
-            if len(v) == len(edges):# len(adjList)-1:
+            if len(v) == len(adjList)-1:# len(edges)
                 return k
