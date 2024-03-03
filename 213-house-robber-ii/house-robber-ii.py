@@ -3,44 +3,44 @@
 # [2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1,2,7,9,3,1]
 
 # # attempt IV : dp array bottom up + variables
-class Solution:
-    def rob(self, nums: List[int]) -> int:
-        n = len(nums)
-        if n == 1:
-            return nums[0]
-        a = 0
-        b = nums[0]
-        for i in range(2,n):
-            temp = max(b, a + nums[i-1])
-            a = b
-            b = temp
-        one = b
-        a = 0
-        b = nums[1]
-        for i in range(2,n):
-            temp = max(b, a + nums[i])
-            a = b
-            b = temp
-        two = b
-        return max(one, two)
-
-# # attempt III : dp array bottom up
 # class Solution:
 #     def rob(self, nums: List[int]) -> int:
 #         n = len(nums)
 #         if n == 1:
 #             return nums[0]
-#         dp = [0, nums[0]]
+#         a = 0
+#         b = nums[0]
 #         for i in range(2,n):
-#             dp.append(max(dp[i-1], dp[i-2] + nums[i-1]))
-#         print(dp)
-#         a = max(dp[n-1], dp[n-2])
-#         dp = [0, nums[1]]
+#             temp = max(b, a + nums[i-1])
+#             a = b
+#             b = temp
+#         one = b
+#         a = 0
+#         b = nums[1]
 #         for i in range(2,n):
-#             dp.append(max(dp[i-1], dp[i-2] + nums[i]))
-#         print(dp)
-#         b = max(dp[n-1], dp[n-2])
-#         return max(a,b)
+#             temp = max(b, a + nums[i])
+#             a = b
+#             b = temp
+#         two = b
+#         return max(one, two)
+
+# # attempt III : dp array bottom up
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 1:
+            return nums[0]
+        dp = [0, nums[0]]
+        for i in range(2,n):
+            dp.append(max(dp[i-1], dp[i-2] + nums[i-1]))
+        print(dp)
+        a = dp[n-1]
+        dp = [0, 0]
+        for i in range(2,n+1):
+            dp.append(max(dp[i-1], dp[i-2] + nums[i-1]))
+        print(dp)
+        b = dp[n]
+        return max(a,b)
 
 
 # # attempt II : recurrsion + memo 
